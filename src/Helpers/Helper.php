@@ -1,4 +1,5 @@
 <?php
+
 namespace Elsayed85\ShowBox\Helpers;
 
 

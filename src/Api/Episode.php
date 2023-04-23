@@ -25,4 +25,16 @@ class Episode
             "episode" => $episode,
         ]);
     }
+
+    public static function srts($tid, $season, $episode, $fid  = null, $uid = null)
+    {
+        return (new Helper())->call([
+            "module" => "TV_srt_list_v2",
+            "tid" => $tid,
+            "fid" => $fid ?? "",
+            "season" => $season,
+            "episode" => $episode,
+            "uid" => $uid ?? 1,
+        ]);
+    }
 }

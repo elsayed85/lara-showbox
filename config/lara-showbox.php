@@ -20,13 +20,15 @@ $default = [
 
 
 return [
-    "key" => $key,
-    "iv" => $iv,
-    "appId" => $appId,
+    "key" => env("SHOWBOX_KEY", $key),
+    "iv" => env("SHOWBOX_IV", $iv),
+    "appId" => env("SHOWBOX_APPID", $appId),
+    "appKey" => env("SHOWBOX_APPKEY", $appKey),
     "servers" => $servers,
+
     "default" => [
         "page" => $default["page"],
-        "pagelimit" => $default["pagelimit"],
+        "pagelimit" => env("SHOWBOX_PAGELIMIT", $default["pagelimit"]),
         "lang" => env("SHOWBOX_LANG", $default["lang"]),
         "childmode" => env("SHOWBOX_CHILDMODE", $default["childmode"]),
         "server" => env("SHOWBOX_SERVER", $default["server"]),
