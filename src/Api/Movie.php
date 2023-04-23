@@ -55,7 +55,7 @@ class Movie
         ]);
     }
 
-    public static function topList($id, $page = 1, $pagelimit = 10)
+    public static function topList($id, $page = 1, $pagelimit = null)
     {
         return (new Helper())->call([
             "module" => "Top_list_movie",

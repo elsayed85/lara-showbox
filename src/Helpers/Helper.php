@@ -64,6 +64,10 @@ class Helper
             "pagelimit" => $default["pagelimit"],
         );
 
+        $pramters = array_filter($pramters, function ($value) {
+            return $value !== null;
+        });
+
         $pramters = array_merge($defaultPramters, $pramters);
         return json_encode($pramters);
     }
@@ -97,7 +101,7 @@ class Helper
     }
 
 
-    public function request($data, $server = 'showbox')
+    public function request($data, $server = null)
     {
         $default = config('lara-showbox.default');
         $servers = config('lara-showbox.servers');
@@ -126,7 +130,7 @@ class Helper
         return json_decode($response, true);
     }
 
-    public function call($parameters, $server = 'showbox')
+    public function call($parameters, $server = null)
     {
         return $this->request(
             $this->generateEncryptedBody($this->buildQuery($parameters)),

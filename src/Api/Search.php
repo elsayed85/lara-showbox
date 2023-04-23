@@ -6,7 +6,7 @@ use Elsayed85\ShowBox\Helpers\Helper;
 
 class Search
 {
-    public static function get($type, $title, $page = 1, $pagelimit  = 10)
+    public static function get($type, $title, $page = 1, $pagelimit  = null)
     {
         if ($type == null) {
             $type = "all";
@@ -22,7 +22,7 @@ class Search
     }
 
 
-    public static function top($type, $pagelimit = 10)
+    public static function top($type, $pagelimit = null)
     {
         if (!in_array($type, ["movie", "tv"])) {
             $type = "movie";
@@ -35,7 +35,7 @@ class Search
         ]);
     }
 
-    public static function autocomplate($title, $pagelimit = 10)
+    public static function autocomplate($title, $pagelimit = null)
     {
         return (new Helper())->call([
             "module" => "Autocomplate2",
