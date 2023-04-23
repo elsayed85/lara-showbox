@@ -2,14 +2,13 @@
 
 namespace Elsayed85\ShowBox\Api;
 
-use Elsayed85\ShowBox\Helpers\Helper;
-
+use Elsayed85\ShowBox\ShowBox;
 
 class Episode
 {
     public static function all($tid, $season)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "TV_episode",
             "tid" => $tid,
             "season" => $season,
@@ -18,7 +17,7 @@ class Episode
 
     public static function donwload($tid, $season, $episode)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "TV_downloadurl_v3",
             "tid" => $tid,
             "season" => $season,
@@ -28,7 +27,7 @@ class Episode
 
     public static function srts($tid, $season, $episode, $fid  = null, $uid = null)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "TV_srt_list_v2",
             "tid" => $tid,
             "fid" => $fid ?? "",

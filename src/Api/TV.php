@@ -2,13 +2,13 @@
 
 namespace Elsayed85\ShowBox\Api;
 
-use Elsayed85\ShowBox\Helpers\Helper;
+use Elsayed85\ShowBox\ShowBox;
 
 class TV
 {
     public static function get($id)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "TV_detail",
             "tid" => $id,
             "display_all" => "1",
@@ -26,7 +26,7 @@ class TV
         $page = null,
         $pagelimit = null
     ) {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "TV_list_v2",
             "year" => $year,
             "cid" => $category_id,
@@ -42,7 +42,7 @@ class TV
 
     public static function topLists()
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Top_list",
             "box_type" => 2
         ]);
@@ -50,7 +50,7 @@ class TV
 
     public static function topList($id, $page = 1, $pagelimit = null)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Top_list_tv",
             "id" => $id,
             "page" => $page,

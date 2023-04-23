@@ -2,7 +2,7 @@
 
 namespace Elsayed85\ShowBox\Api;
 
-use Elsayed85\ShowBox\Helpers\Helper;
+use Elsayed85\ShowBox\ShowBox;
 
 class Search
 {
@@ -12,7 +12,7 @@ class Search
             $type = "all";
         }
 
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Search5",
             "page" => $page,
             "pagelimit" => $pagelimit,
@@ -28,7 +28,7 @@ class Search
             $type = "movie";
         }
 
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Search_hot",
             "type" => $type,
             "pagelimit" => $pagelimit,
@@ -37,7 +37,7 @@ class Search
 
     public static function autocomplate($title, $pagelimit = null)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Autocomplate2",
             "keyword" => $title,
             "pagelimit" => $pagelimit,

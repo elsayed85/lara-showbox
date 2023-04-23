@@ -1,13 +1,13 @@
 <?php
 namespace Elsayed85\ShowBox\Api;
 
-use Elsayed85\ShowBox\Helpers\Helper;
+use Elsayed85\ShowBox\ShowBox;
 
 class Movie
 {
     public static function get($id)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Movie_detail",
             "mid" => $id,
         ]);
@@ -15,7 +15,7 @@ class Movie
 
     public static function download($mid)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Movie_downloadurl_v3",
             "mid" => $mid,
         ]);
@@ -33,7 +33,7 @@ class Movie
         $page = null,
         $pagelimit = null
     ) {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Movie_list_v3",
             "year" => $year,
             "cid" => $category_id,
@@ -49,7 +49,7 @@ class Movie
 
     public static function topLists()
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Top_list",
             "box_type" => 1
         ]);
@@ -57,7 +57,7 @@ class Movie
 
     public static function topList($id, $page = 1, $pagelimit = null)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Top_list_movie",
             "id" => $id,
             "page" => $page,
@@ -67,7 +67,7 @@ class Movie
 
     public static function srts($mid, $fid = null, $uid = null)
     {
-        return (new Helper())->call([
+        return (new ShowBox())->call([
             "module" => "Movie_srt_list_v2",
             "mid" => $mid,
             "fid" => $fid ?? "",
