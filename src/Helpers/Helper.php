@@ -48,8 +48,8 @@ class Helper
 
     public function buildQuery($pramters)
     {
-        $appId = confog('lara-showbox.appId');
-        $default = confog('lara-showbox.default');
+        $appId = config('lara-showbox.appId');
+        $default = config('lara-showbox.default');
 
         $defaultPramters = array(
             'appid' => $appId,
@@ -98,8 +98,8 @@ class Helper
 
     public function request($data, $server = 'showbox')
     {
-        $default = confog('lara-showbox.default');
-        $servers = confog('lara-showbox.servers');
+        $default = config('lara-showbox.default');
+        $servers = config('lara-showbox.servers');
 
         $headers = [
             'Platform' => 'android',
